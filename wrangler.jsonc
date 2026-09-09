@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "guruji-real-estate",
   "compatibility_date": "2026-09-08",
+  "workers_dev": true,
   "routes": [
     { "pattern": "gurujirealestate.webdraft.site", "custom_domain": true },
     { "pattern": "guruji-real-estate.webdraft.site", "custom_domain": true }
