@@ -1,9 +1,9 @@
 ﻿/* ============================================================
-   GURU JI REAL ESTATE & DEVELOPERS — Ultra Mobile Optimized Design
-   Light Warm Cream & Royal Gold Theme (Boutique Real Estate Agency)
+   GURU JI REAL ESTATE & DEVELOPERS — DLF Luxury Style & Mobile Optimized
+   Fonts: Playfair Display (Headings) + Plus Jakarta Sans (Body) + Outfit
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@500;600;700;800&display=swap');
 
 :root {
   --paper: #FBFAF7;
@@ -52,7 +52,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--paper);
   color: var(--ink);
   line-height: 1.6;
@@ -63,12 +63,8 @@ body.lock {
   overflow: hidden;
 }
 
-h1, h2, h3, h4, .font-heading {
-  font-family: 'Manrope', sans-serif;
-}
-
-.serif {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+h1, h2, h3, h4, .font-heading, .serif {
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
 a {
@@ -83,7 +79,7 @@ img {
 }
 
 button, input, select, textarea {
-  font-family: inherit;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .container {
@@ -92,6 +88,7 @@ button, input, select, textarea {
 }
 
 .eyebrow {
+  font-family: 'Outfit', sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -120,6 +117,7 @@ button, input, select, textarea {
   padding: 8px 0;
   font-size: 11px;
   letter-spacing: 1.2px;
+  font-family: 'Outfit', sans-serif;
 }
 
 .topline-inner {
@@ -152,13 +150,14 @@ button, input, select, textarea {
 }
 
 .logo {
-  font: 800 22px/1 "Manrope", sans-serif;
+  font: 800 22px/1 "Playfair Display", Georgia, serif;
   letter-spacing: -0.5px;
   color: var(--ink);
 }
 
 .logo small {
   display: block;
+  font-family: 'Outfit', sans-serif;
   color: var(--gold-dark);
   font-size: 9px;
   letter-spacing: 2.5px;
@@ -226,7 +225,7 @@ button, input, select, textarea {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(3, 11, 18, 0.95) 0%, rgba(3, 11, 18, 0.78) 50%, rgba(3, 11, 18, 0.45) 100%),
+  background: linear-gradient(90deg, rgba(3, 11, 18, 0.94) 0%, rgba(3, 11, 18, 0.78) 50%, rgba(3, 11, 18, 0.45) 100%),
               url('hero_building.jpg') center top/cover no-repeat;
   transform: scale(1.02);
   animation: heroDrift 24s ease-in-out infinite alternate;
@@ -248,16 +247,14 @@ button, input, select, textarea {
 }
 
 .hero-left h1 {
-  font: 700 clamp(36px, 4.8vw, 68px)/1.02 "Manrope", sans-serif;
-  letter-spacing: -1.5px;
+  font: 700 clamp(36px, 4.8vw, 68px)/1.02 "Playfair Display", Georgia, serif;
+  letter-spacing: -1px;
   margin: 0 0 16px;
 }
 
 .hero-left h1 .script {
-  font: 500 clamp(42px, 5.8vw, 76px)/0.88 "Cormorant Garamond", serif;
   font-style: italic;
   color: var(--gold-light);
-  letter-spacing: -1px;
 }
 
 .hero-subtext {
@@ -277,11 +274,6 @@ button, input, select, textarea {
   color: var(--gold-light);
   font-weight: 700;
   margin-top: 10px;
-}
-
-/* Dedicated Mobile Photo Card */
-.hero-mobile-img-card {
-  display: none;
 }
 
 /* First Fold Inline Enquiry Form Card */
@@ -305,6 +297,7 @@ button, input, select, textarea {
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 10px;
+  font-family: 'Outfit', sans-serif;
 }
 
 .hero-form-box h3 {
@@ -312,7 +305,7 @@ button, input, select, textarea {
   font-weight: 800;
   color: var(--ink);
   margin-bottom: 4px;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 .hero-form-box p {
@@ -366,7 +359,7 @@ button, input, select, textarea {
   font-weight: 800;
 }
 
-/* Button Contrast & legibility Improvements */
+/* Button Contrast & Legibility */
 .btn {
   border: 0;
   cursor: pointer;
@@ -381,13 +374,13 @@ button, input, select, textarea {
   letter-spacing: 0.8px;
   text-transform: uppercase;
   transition: all 0.3s var(--ease);
+  font-family: 'Outfit', sans-serif;
 }
 
 .btn:hover {
   transform: translateY(-2px);
 }
 
-/* Gold Button: Ultra Sharp Black Text on Metallic Gold */
 .btn-gold {
   background: linear-gradient(135deg, #FFD700 0%, #E6B800 50%, #C99700 100%);
   color: #000000 !important;
@@ -431,6 +424,7 @@ button, input, select, textarea {
   overflow: hidden;
   white-space: nowrap;
   padding: 12px 0;
+  font-family: 'Outfit', sans-serif;
 }
 
 .strip-track {
@@ -470,6 +464,7 @@ button, input, select, textarea {
   letter-spacing: -1px;
   margin: 0;
   max-width: 720px;
+  font-family: 'Playfair Display', serif;
 }
 
 .heading p {
@@ -538,12 +533,13 @@ button, input, select, textarea {
   font-size: 9px;
   letter-spacing: 2px;
   font-weight: 800;
+  font-family: 'Outfit', sans-serif;
 }
 
 .category-copy h3 {
   font-size: 24px;
   margin: 6px 0;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 .category-copy p {
@@ -617,6 +613,7 @@ button, input, select, textarea {
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
 }
 
 .badge-price-tag {
@@ -630,7 +627,7 @@ button, input, select, textarea {
   font-weight: 800;
   font-size: 1.15rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 .prop-content {
@@ -644,7 +641,7 @@ button, input, select, textarea {
   font-size: 1.25rem;
   margin-bottom: 6px;
   color: var(--ink);
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 .prop-loc {
@@ -669,7 +666,7 @@ button, input, select, textarea {
   font-weight: 600;
 }
 
-/* Visual Story Grid */
+/* Visual Story Grid (Fixed Overlap Bug) */
 .visual-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -697,7 +694,8 @@ button, input, select, textarea {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(6, 17, 28, 0.85) 100%);
+  background: linear-gradient(180deg, transparent 35%, rgba(6, 17, 28, 0.88) 100%);
+  pointer-events: none;
 }
 
 .visual-copy {
@@ -707,12 +705,25 @@ button, input, select, textarea {
   left: 24px;
   right: 24px;
   color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.visual-copy .badge-tag-gold {
+  position: relative;
+  top: auto;
+  left: auto;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: max-content;
 }
 
 .visual-copy h3 {
   font-size: 28px;
-  line-height: 1.05;
+  line-height: 1.1;
   margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
 }
 
 .visual-copy p {
@@ -749,7 +760,7 @@ button, input, select, textarea {
   font-weight: 800;
   color: var(--gold-light);
   margin: 12px 0;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
 }
 
 /* Reviews Card */
@@ -838,6 +849,7 @@ button, input, select, textarea {
   text-transform: uppercase;
   margin-bottom: 4px;
   font-weight: 700;
+  font-family: 'Outfit', sans-serif;
 }
 
 /* Footer */
@@ -856,7 +868,7 @@ button, input, select, textarea {
 }
 
 /* ============================================================
-   MOBILE 3-BUTTON BOTTOM ACTION BAR (HIGH CONTRAST & SHARP)
+   MOBILE 3-BUTTON BOTTOM ACTION BAR (HIGH CONTRAST)
    ============================================================ */
 .mobile-3btn-bar {
   display: none;
@@ -888,6 +900,7 @@ button, input, select, textarea {
   font-weight: 900;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
 }
 
 .btn-mob-enquire {
@@ -901,6 +914,7 @@ button, input, select, textarea {
   font-weight: 900;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
 }
 
 .btn-mob-wa {
@@ -914,6 +928,7 @@ button, input, select, textarea {
   font-weight: 900;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
 }
 
 /* Modal Popup */
@@ -959,7 +974,7 @@ button, input, select, textarea {
 }
 
 /* ============================================================
-   MOBILE RESPONSIVE OPTIMIZATION (EXACT USER SPECIFICATIONS)
+   MOBILE RESPONSIVE OPTIMIZATION (SEPARATE MOBILE BACKGROUND IMAGE)
    ============================================================ */
 @media (max-width: 900px) {
   .topline { display: none; }
@@ -969,70 +984,39 @@ button, input, select, textarea {
   .header-nav { height: 62px; }
   .nav-inner { height: 62px; }
   
-  /* First Fold Spacing Fix: Zero empty gap at top */
+  /* First Fold Spacing & Mobile Background Optimization */
   .hero {
     min-height: auto;
-    padding: 12px 0 36px;
+    padding: 16px 0 36px;
+  }
+
+  .hero-bg {
+    background: linear-gradient(180deg, rgba(3, 11, 18, 0.92) 0%, rgba(3, 11, 18, 0.82) 60%, rgba(3, 11, 18, 0.95) 100%),
+                url('hero_mobile_bg.jpg') center top/cover no-repeat;
   }
   
   .hero-grid {
-    padding: 10px 0 16px;
+    padding: 12px 0 16px;
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 20px;
   }
   
   .hero-left h1 {
-    font-size: clamp(28px, 7.2vw, 40px);
-    line-height: 1.06;
+    font-size: clamp(30px, 7.8vw, 42px);
+    line-height: 1.08;
     margin-bottom: 10px;
-  }
-
-  .hero-left h1 .script {
-    font-size: clamp(34px, 8.5vw, 48px);
   }
 
   .hero-subtext {
     font-size: 13.5px;
     line-height: 1.6;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
   .hero-quick-features {
     font-size: 11px;
     gap: 10px;
     margin-top: 8px;
-  }
-
-  /* Show Dedicated Mobile Building Photo Card */
-  .hero-mobile-img-card {
-    display: block;
-    margin: 12px 0 16px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.25);
-    position: relative;
-  }
-
-  .hero-mobile-img-card img {
-    width: 100%;
-    height: 210px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .hero-mobile-img-card .img-caption {
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
-    background: rgba(6, 17, 28, 0.88);
-    backdrop-filter: blur(8px);
-    color: var(--gold-light);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 10.5px;
-    font-weight: 700;
   }
 
   /* First Fold Form Card Mobile Fitting */
@@ -1066,8 +1050,12 @@ button, input, select, textarea {
     gap: 24px;
   }
 
-  .visual-main { height: 360px; }
-  .visual-small { height: 240px; }
+  .visual-main { height: 380px; }
+  .visual-small { height: 250px; }
+
+  .visual-copy h3 {
+    font-size: 22px;
+  }
 
   .calc-card-light { padding: 24px 18px; }
   .form-white { padding: 24px 18px; }
