@@ -58,7 +58,41 @@
     if (e.key === 'Escape') closeModal();
   });
 
-  // 2. Lead Form Submission Handler (Main Lead Form)
+  // 2. Hero Section Lead Form Handler (First Fold Form)
+  const heroLeadForm = document.getElementById('heroLeadForm');
+  if (heroLeadForm) {
+    heroLeadForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('heroName').value.trim();
+      const phone = document.getElementById('heroPhone').value.trim();
+      const type = document.getElementById('heroType').value;
+      const budget = document.getElementById('heroBudget').value;
+
+      if (!name || !phone) {
+        alert('Please fill in your name and phone number.');
+        return;
+      }
+
+      const waText = `Hi Guru Ji Real Estate & Developers,
+
+I want to enquire about a property in South Delhi:
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+🏠 Property Type: ${type}
+💰 Budget Range: ${budget}
+
+Please send floor plans & pricing on WhatsApp.`;
+
+      const waUrl = createWhatsAppUrl(waText);
+      alert('Redirecting you directly to WhatsApp to connect with Guru Ji Developers...');
+      window.open(waUrl, '_blank');
+      heroLeadForm.reset();
+    });
+  }
+
+  // 3. Lead Form Submission Handler (Main Section Form)
   const leadForm = document.getElementById('leadForm');
   if (leadForm) {
     leadForm.addEventListener('submit', function (e) {
@@ -94,7 +128,7 @@ Please share the available floor plans and pricing details.`;
     });
   }
 
-  // 3. Quick Form Submission Handler (Modal Quick Form)
+  // 4. Quick Form Submission Handler (Modal Quick Form)
   const quickForm = document.getElementById('quickForm');
   if (quickForm) {
     quickForm.addEventListener('submit', function (e) {
@@ -130,7 +164,7 @@ Please connect with me.`;
     });
   }
 
-  // 4. EMI Calculator Logic
+  // 5. EMI Calculator Logic
   const loanInput = document.getElementById('loanAmount');
   const interestInput = document.getElementById('interestRate');
   const tenureInput = document.getElementById('tenureYears');
@@ -162,7 +196,7 @@ Please connect with me.`;
     calculateEMI();
   }
 
-  // 5. Scroll Reveal Animations (IntersectionObserver)
+  // 6. Scroll Reveal Animations (IntersectionObserver)
   const revealElements = document.querySelectorAll('.animate-reveal');
   if ('IntersectionObserver' in window && revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -174,13 +208,12 @@ Please connect with me.`;
       });
     }, {
       root: null,
-      threshold: 0.1,
-      rootMargin: "0px 0px -40px 0px"
+      threshold: 0.08,
+      rootMargin: "0px 0px -30px 0px"
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
   } else {
-    // Fallback if IntersectionObserver not supported
     revealElements.forEach(el => el.classList.add('visible'));
   }
 

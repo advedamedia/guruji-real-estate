@@ -7,6 +7,9 @@
   <meta name="description" content="Guru Ji Real Estate & Developers Office – Premium Builder Floors, Residential Apartments & Property Developers in Chirag Delhi, South Delhi." />
   <title>Guru Ji | Real Estate & Developers — South Delhi</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,43 +45,78 @@
         <a class="nav-call" href="tel:+919540979494">📞 +91 95409 79494</a>
         <a class="nav-enquire" href="#contact" data-open="enquiry">Enquire Now</a>
       </nav>
+      <a class="mobile-nav-call" href="tel:+919540979494">📞 Call Us</a>
     </div>
   </header>
 
   <main>
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO SECTION (FIRST FOLD WITH INTEGRATED FORM) ===== -->
     <section class="hero" id="home">
       <div class="hero-bg"></div>
       <div class="container hero-grid">
-        <div class="hero-copy animate-reveal">
-          <div class="eyebrow">Luxury Builder Floors · South Delhi</div>
-          <h1>Find a place that feels <span class="script">right.</span></h1>
-          <p>
-            A polished, direct property experience for buyers exploring luxury 2BHK, 3BHK & 4BHK builder floors, land collaboration & investments in Chirag Delhi, Greater Kailash, Saket & Panchsheel Park.
+        
+        <!-- Left Column: Short Headline & Mobile Photo -->
+        <div class="hero-left animate-reveal">
+          <div class="eyebrow">Guru Ji Developers · Chirag Delhi</div>
+          <h1>Find your luxury floor in <span class="script">South Delhi.</span></h1>
+          
+          <p class="hero-subtext">
+            Luxury 2, 3 & 4 BHK Builder Floors & Land Collaboration in Chirag Delhi, Greater Kailash & Saket. 100% Clear Titles & Direct Developer Pricing.
           </p>
-          <div class="actions">
-            <button class="btn btn-gold" data-open="enquiry">Start Your Property Search →</button>
-            <a class="btn btn-outline-light" href="#properties">Explore Verified Inventory</a>
+
+          <!-- Dedicated Mobile Hero Image Showcase -->
+          <div class="hero-mobile-img-card">
+            <img src="hero_building.jpg" alt="Luxury Builder Floor Exterior in South Delhi" />
+            <span class="img-caption">📍 Chirag Delhi Main Road · Ready to Move Floors</span>
+          </div>
+
+          <div class="hero-quick-features">
+            <span>✨ Freehold Property Titles</span>
+            <span>🚗 Stilt Parking & Lift</span>
+            <span>⭐ Rated 5.0 on Google</span>
           </div>
         </div>
 
-        <div class="hero-card-wrap animate-reveal">
-          <div class="glass-office-card">
-            <div class="live-dot"><i></i> Developer Office</div>
-            <strong style="font-size: 26px; font-family: 'Cormorant Garamond', serif; display: block; margin-top: 4px;">Chirag Dilli</strong>
-            <p style="font-size: 13px; color: #D0DADE; margin-top: 8px;">
-              11 E, Chirag Delhi Main Road<br>
-              Near Prachin Shiv Mandir · New Delhi 110017
-            </p>
-            <div style="margin-top: 14px; font-size: 12px; color: var(--gold-light); line-height: 1.6;">
-              📞 <strong>+91 95409 79494</strong> (Primary)<br>
-              📞 <strong>+91 95409 69494</strong>
-            </div>
-            <a class="btn btn-outline-light" style="margin-top: 18px; min-height: 40px; padding: 8px 16px; font-size: 10px; width: 100%; justify-content: center;" href="#location">
-              View Office Location →
-            </a>
+        <!-- Right Column: FIRST FOLD ENQUIRY FORM -->
+        <div class="hero-right animate-reveal">
+          <div class="hero-form-box">
+            <div class="form-badge">⚡ Instant WhatsApp Pricing</div>
+            <h3>Get Floor Plans & Direct Quote</h3>
+            <p>Share your requirement to get instant brochure & pricing on WhatsApp:</p>
+
+            <form id="heroLeadForm">
+              <div class="form-grid-compact">
+                <input class="field-compact" id="heroName" required placeholder="Your Name *" />
+                <input class="field-compact" id="heroPhone" required placeholder="Phone Number *" inputmode="tel" />
+                
+                <select class="field-compact" id="heroType" required>
+                  <option value="">Select Property Type *</option>
+                  <option value="3BHK Builder Floor (Chirag Delhi)">3BHK Builder Floor (Chirag Delhi)</option>
+                  <option value="4BHK Penthouse (Greater Kailash)">4BHK Penthouse (Greater Kailash)</option>
+                  <option value="2BHK Smart Floor (Saket/Malviya Nagar)">2BHK Floor (Saket / Malviya Nagar)</option>
+                  <option value="Plot / Land Collaboration">Plot / Land Collaboration (JV)</option>
+                </select>
+
+                <select class="field-compact" id="heroBudget" required>
+                  <option value="">Select Budget Range *</option>
+                  <option value="Below ₹1.5 Crore">Below ₹1.5 Crore</option>
+                  <option value="₹1.5 Cr – ₹2.5 Crore">₹1.5 Cr – ₹2.5 Crore</option>
+                  <option value="₹2.5 Cr – ₹4 Crore">₹2.5 Cr – ₹4 Crore</option>
+                  <option value="₹4 Crore+">₹4 Crore+</option>
+                </select>
+              </div>
+
+              <button class="btn btn-gold btn-hero-submit" type="submit">
+                💬 Get Instant Details on WhatsApp →
+              </button>
+
+              <div class="hero-form-footer">
+                📞 Direct Office Lines: <a href="tel:+919540979494">+91 95409 79494</a> · <a href="tel:+919540969494">+91 95409 69494</a>
+              </div>
+            </form>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -98,7 +136,7 @@
             <h2>What are you looking to <span class="serif" style="color: var(--gold-dark);">find?</span></h2>
           </div>
           <p>
-            Start with the property category that matches your goal. Click any category to start an instant query on WhatsApp.
+            Choose your requirement. Click any category for instant details on WhatsApp.
           </p>
         </div>
 
@@ -500,17 +538,12 @@
   <!-- ===== MOBILE 3-BUTTON BOTTOM ACTION BAR ===== -->
   <div class="mobile-3btn-bar">
     <div class="mobile-3btn-grid">
-      <!-- Left Button: CALL NOW -> Native Dialer -->
       <a class="btn-mob-call" href="tel:+919540979494">
         📞 CALL NOW
       </a>
-      
-      <!-- Middle Button: ENQUIRE NOW -> Opens Form / Modal -->
       <a class="btn-mob-enquire" href="#contact" data-open="enquiry">
         📋 ENQUIRE NOW
       </a>
-      
-      <!-- Right Button: WHATSAPP -> Opens WhatsApp -->
       <a class="btn-mob-wa" href="https://wa.me/919540979494?text=Hi%20Guru%20Ji%20Real%20Estate%20team%2C%20I%20want%20to%20enquire%20about%20a%20property." target="_blank" rel="noopener">
         💬 WHATSAPP
       </a>
