@@ -1,12 +1,12 @@
-/* ============================================================
+﻿/* ============================================================
    GURU JI REAL ESTATE & DEVELOPERS — Interactive Script
-   Form to WhatsApp Redirect + Modal + EMI Calc + Animations
+   Form to WhatsApp Redirect + Modal + EMI Calc + Scroll Reveal
    ============================================================ */
 
 (function () {
   'use strict';
 
-  const WHATSAPP_NUMBER = "919540969494";
+  const WHATSAPP_NUMBER = "919540979494";
 
   function createWhatsAppUrl(text) {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
@@ -34,10 +34,9 @@
 
   document.querySelectorAll("[data-open='enquiry']").forEach(btn => {
     btn.addEventListener('click', function (e) {
-      // If clicking inside nav menu on desktop or mobile, open modal or scroll to form
       const href = this.getAttribute('href');
       if (href === '#contact') {
-        // Let smooth scroll happen, but if modal needed:
+        // Allow smooth scroll to contact section
       } else {
         e.preventDefault();
         openModal();
@@ -161,6 +160,28 @@ Please connect with me.`;
     interestInput.addEventListener('input', calculateEMI);
     tenureInput.addEventListener('input', calculateEMI);
     calculateEMI();
+  }
+
+  // 5. Scroll Reveal Animations (IntersectionObserver)
+  const revealElements = document.querySelectorAll('.animate-reveal');
+  if ('IntersectionObserver' in window && revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.1,
+      rootMargin: "0px 0px -40px 0px"
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback if IntersectionObserver not supported
+    revealElements.forEach(el => el.classList.add('visible'));
   }
 
 })();
