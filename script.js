@@ -1,51 +1,137 @@
 /* ============================================================
-   GURU JI REAL ESTATE & DEVELOPERS OFFICE — Glassmorphism & Mobile JS
+   GURU JI REAL ESTATE & DEVELOPERS — Interactive Script
+   Form to WhatsApp Redirect + Modal + EMI Calc + Animations
    ============================================================ */
 
 (function () {
   'use strict';
 
-  // 1. Mobile Drawer Navigation Toggle
-  const hamburger = document.getElementById('hamburger');
-  const mobileDrawer = document.getElementById('mobile-drawer');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const WHATSAPP_NUMBER = "919540969494";
 
-  if (hamburger && mobileDrawer) {
-    hamburger.addEventListener('click', function () {
-      mobileDrawer.classList.toggle('active');
-      document.body.style.overflow = mobileDrawer.classList.contains('active') ? 'hidden' : 'auto';
-    });
-
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', function () {
-        mobileDrawer.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      });
-    });
+  function createWhatsAppUrl(text) {
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   }
 
-  // 2. Property Tabs Filtering
-  const tabBtns = document.querySelectorAll('.tab-btn-glass');
-  const propertyCards = document.querySelectorAll('.prop-card-glass');
+  // 1. Modal Quick Enquiry Handlers
+  const modal = document.getElementById('modal');
+  const closeModalBtn = document.getElementById('closeModal');
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', function () {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
+  function openModal() {
+    if (modal) {
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lock');
+    }
+  }
 
-      const filter = this.getAttribute('data-filter');
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lock');
+    }
+  }
 
-      propertyCards.forEach(card => {
-        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+  document.querySelectorAll("[data-open='enquiry']").forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      // If clicking inside nav menu on desktop or mobile, open modal or scroll to form
+      const href = this.getAttribute('href');
+      if (href === '#contact') {
+        // Let smooth scroll happen, but if modal needed:
+      } else {
+        e.preventDefault();
+        openModal();
+      }
     });
   });
 
-  // 3. EMI Calculator Logic
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // 2. Lead Form Submission Handler (Main Lead Form)
+  const leadForm = document.getElementById('leadForm');
+  if (leadForm) {
+    leadForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const type = document.getElementById('propertyType').value;
+      const budget = document.getElementById('budget').value;
+      const loc = document.getElementById('locationInput').value.trim();
+
+      if (!name || !phone) {
+        alert('Please fill in your name and phone number.');
+        return;
+      }
+
+      const waText = `Hi Guru Ji Real Estate & Developers,
+
+I would like to enquire about a property in South Delhi.
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+🏠 Property Type: ${type}
+💰 Budget: ${budget}
+📍 Preferred Location: ${loc || "Chirag Delhi / South Delhi"}
+
+Please share the available floor plans and pricing details.`;
+
+      const waUrl = createWhatsAppUrl(waText);
+      alert('Thank you! Redirecting you directly to WhatsApp to connect with Guru Ji Developers...');
+      window.open(waUrl, '_blank');
+      leadForm.reset();
+    });
+  }
+
+  // 3. Quick Form Submission Handler (Modal Quick Form)
+  const quickForm = document.getElementById('quickForm');
+  if (quickForm) {
+    quickForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('qName').value.trim();
+      const phone = document.getElementById('qPhone').value.trim();
+      const type = document.getElementById('qType').value;
+      const budget = document.getElementById('qBudget').value;
+      const loc = document.getElementById('qLocation').value.trim();
+
+      if (!name || !phone) {
+        alert('Please fill in your name and phone number.');
+        return;
+      }
+
+      const waText = `Hi Guru Ji Real Estate & Developers,
+
+Quick Enquiry for Property:
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+🏠 Property Type: ${type}
+💰 Budget: ${budget}
+📍 Preferred Location: ${loc || "South Delhi"}
+
+Please connect with me.`;
+
+      const waUrl = createWhatsAppUrl(waText);
+      closeModal();
+      window.open(waUrl, '_blank');
+      quickForm.reset();
+    });
+  }
+
+  // 4. EMI Calculator Logic
   const loanInput = document.getElementById('loanAmount');
   const interestInput = document.getElementById('interestRate');
   const tenureInput = document.getElementById('tenureYears');
@@ -62,9 +148,9 @@
     const r = parseFloat(interestInput.value) / 12 / 100;
     const n = parseFloat(tenureInput.value) * 12;
 
-    loanVal.textContent = `₹ ${loanInput.value} Lakhs`;
-    interestVal.textContent = `${interestInput.value} %`;
-    tenureVal.textContent = `${tenureInput.value} Years`;
+    if (loanVal) loanVal.textContent = `₹ ${loanInput.value} Lakhs`;
+    if (interestVal) interestVal.textContent = `${interestInput.value} %`;
+    if (tenureVal) tenureVal.textContent = `${tenureInput.value} Years`;
 
     const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
     emiDisplay.textContent = `₹ ${Math.round(emi).toLocaleString('en-IN')}`;
@@ -77,27 +163,4 @@
     calculateEMI();
   }
 
-  // 4. Contact Form Handler (dual lead capture via WhatsApp)
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById('formName').value.trim();
-      const phone = document.getElementById('formPhone').value.trim();
-      const property = document.getElementById('formProperty').value;
-
-      if (!name || !phone) {
-        alert('Please provide your name and phone number.');
-        return;
-      }
-
-      const waText = `Hi Guru Ji Real Estate team, I am interested in property details.\n\nName: ${name}\nPhone: ${phone}\nRequirement: ${property}`;
-      const waUrl = `https://wa.me/919811000000?text=${encodeURIComponent(waText)}`;
-
-      alert('Thank you! Your VIP inquiry has been registered. Opening WhatsApp to connect directly with Principal Developers...');
-      window.open(waUrl, '_blank');
-      contactForm.reset();
-    });
-  }
 })();
